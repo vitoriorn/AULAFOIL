@@ -1,0 +1,129 @@
+from datetime import date
+
+# Classe que representa um evento marcante na vida
+class Evento:
+    def _init_(self, ano, descricao, nascimento):
+        # Armazena o ano do evento e a descrição
+        self.ano = ano
+        self.descricao = descricao
+        # Calcula a idade aproximada no evento
+        self.idade = ano - nascimento.year
+
+    def _str_(self):
+        return f"[{self.ano}] (Idade: {self.idade}) → {self.descricao}"
+
+
+# Classe que representa uma fase da vida (Infância, Adolescência, Adulto)
+class FaseDaVida:
+    def _init_(self, nome, inicio, fim=None):
+        self.nome = nome  # Nome da fase
+        self.inicio = inicio  # Ano de início
+        self.fim = fim  # Ano de término (ou None para presente)
+        self.eventos = []  # Lista de eventos
+
+    def adicionar_evento(self, evento):
+        self.eventos.append(evento)  # Adiciona evento à fase
+
+    def mostrar(self):
+        fim_texto = self.fim if self.fim else "Presente"
+        print(f"\n🔹 {self.nome} ({self.inicio} - {fim_texto})")
+        for evento in self.eventos:
+            print(f"   {evento}")
+
+
+# Classe para representar valores e objetivos pessoais
+class ProjetoNatureza:
+    def _init_(self, virtudes, objetivo_futuro):
+        self.virtudes = virtudes  # Lista de virtudes
+        self.objetivo_futuro = objetivo_futuro  # Objetivo para o futuro
+
+    def mostrar(self):
+        print("\n🌱 Virtudes")
+        for v in self.virtudes:
+            print(f"   - {v}")
+        print("\n🌟 Objetivo Futuro")
+        print(f"{self.objetivo_futuro}")
+
+
+# Classe principal Pessoa
+class Pessoa:
+    def _init_(self, nome, nascimento):
+        self.nome = nome
+        self.nascimento = nascimento
+        self.idade = self.calcular_idade()
+        self.fases = []
+        self.projeto_natureza = None
+
+    def calcular_idade(self):
+        hoje = date.today()
+        return hoje.year - self.nascimento.year - (
+            (hoje.month, hoje.day) < (self.nascimento.month, self.nascimento.day)
+        )
+
+    def adicionar_fase(self, fase):
+        self.fases.append(fase)
+
+    def definir_projeto_natureza(self, projeto):
+        self.projeto_natureza = projeto
+
+    def mostrar_historia(self):
+        print(f"\n📖 Linha da Vida de {self.nome}")
+        print(f"Idade atual: {self.idade} anos\n")
+        for fase in self.fases:
+            fase.mostrar()
+        if self.projeto_natureza:
+            self.projeto_natureza.mostrar()
+        print("\n--- Fim da linha do tempo ---\n")
+
+
+# Execução do código
+if _name_ == "_main_":
+    nascimento = date(2004, 3, 15)
+    eu = Pessoa("Vitório", nascimento)
+
+    # Fase Infância
+    infancia = FaseDaVida("Infância", 2004, 2015)
+    infancia.adicionar_evento(Evento(2005, "Primeiros passos e primeiras palavras", nascimento))
+    infancia.adicionar_evento(Evento(2006, "Primeiros amigos e brincadeiras", nascimento))
+    infancia.adicionar_evento(Evento(2008, "Entrada no ensino fundamental", nascimento))
+    infancia.adicionar_evento(Evento(2010, "Primeiro contato com tecnologia (computador/jogos)", nascimento))
+    infancia.adicionar_evento(Evento(2012, "Participação em invernadas do CTG", nascimento))
+    infancia.adicionar_evento(Evento(2013, "Mudança de turma e novos amigos", nascimento))
+    infancia.adicionar_evento(Evento(2015, "Início do ensino fundamental", nascimento))
+
+    # Fase Adolescência
+    adolescencia = FaseDaVida("Adolescência", 2016, 2021)
+    adolescencia.adicionar_evento(Evento(2016, "Joguei em escolinhas de futebol", nascimento))
+    adolescencia.adicionar_evento(Evento(2016, "Copa do Brasil do Grêmio", nascimento))
+    adolescencia.adicionar_evento(Evento(2016, "Meu irmão nasceu", nascimento))
+    adolescencia.adicionar_evento(Evento(2017, "Primeiro Sonho: Ser médico", nascimento))
+    adolescencia.adicionar_evento(Evento(2017, "Libertadores do Grêmio", nascimento))
+    adolescencia.adicionar_evento(Evento(2018, "Entrei para o ensino médio no IFF", nascimento))
+    adolescencia.adicionar_evento(Evento(2019, "Conclusão do ensino médio", nascimento))
+    adolescencia.adicionar_evento(Evento(2020, "Descoberta de interesses na área de TI", nascimento))
+    adolescencia.adicionar_evento(Evento(2020, "Queria ser militar", nascimento))
+    adolescencia.adicionar_evento(Evento(2021, "Início da faculdade", nascimento))
+
+    # Fase Adulto
+    adulto = FaseDaVida("Adulto", 2022)
+    adulto.adicionar_evento(Evento(2022, "Primeiro emprego formal", nascimento))
+    adulto.adicionar_evento(Evento(2022, "Passei e tirei a CNH", nascimento))
+    adulto.adicionar_evento(Evento(2023, "Bati um carro", nascimento))
+    adulto.adicionar_evento(Evento(2024, "Assumi novas funções no meu emprego", nascimento))
+    adulto.adicionar_evento(Evento(2025, "Aprendendo um novo idioma", nascimento))
+    adulto.adicionar_evento(Evento(2025, "Abertura da minha empresa", nascimento))
+
+    # Adicionando fases à pessoa
+    eu.adicionar_fase(infancia)
+    eu.adicionar_fase(adolescencia)
+    eu.adicionar_fase(adulto)
+
+    # Projeto de natureza (valores e objetivo)
+    projeto = ProjetoNatureza(
+        virtudes=["Honestidade", "Otimismo", "Resiliência"],
+        objetivo_futuro="Ser um empresário de sucesso e ter o máximo de experiência possível em música (violão)."
+    )
+    eu.definir_projeto_natureza(projeto)
+
+    # Mostrar linha da vida
+    eu.mostrar_historia()

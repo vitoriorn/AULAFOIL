@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Linha da Vida - Vitório</title>
+  <style>
+    /*
+      Estilização principal do corpo da página.
+      Define fonte, margens, padding e fundo com gradiente para dar um efeito moderno e dinâmico.
+      O gradiente serve para criar profundidade visual e destacar o conteúdo em branco.
+    */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      color: #fff;
+    }
+
+    /*
+      Cabeçalho: centraliza o título e a data de nascimento.
+      Usa transparência para que o fundo em gradiente seja levemente visível.
+      Serve como identificação clara da página.
+    */
+    header {
+      text-align: center;
+      padding: 30px;
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.2rem;
+    }
+
+    header p {
+      margin: 5px 0 0;
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    /*
+      Container central que limita a largura do conteúdo e centraliza horizontalmente.
+      Essa prática ajuda a manter o design responsivo em diferentes tamanhos de tela.
+    */
+    .container {
+      width: 90%;
+      max-width: 800px;
+      margin: 30px auto;
+    }
+
+    /*
+      Cada fase da vida é separada visualmente para criar uma estrutura clara.
+      Isso permite que o usuário veja a progressão cronológica da vida.
+    */
+    .fase {
+      margin-bottom: 30px;
+    }
+
+    /*
+      Título da fase com destaque através de borda esquerda.
+      A borda reforça a hierarquia visual e ajuda na leitura da linha do tempo.
+    */
+    .fase h2 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      border-left: 5px solid #fff;
+      padding-left: 10px;
+    }
+
+    /*
+      Cada evento possui fundo semi-transparente, padding e border-radius.
+      Isso cria um cartão visual para cada marco da vida.
+      Transição suave ao passar o mouse para dar feedback visual ao usuário.
+    */
+    .evento {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 12px 18px;
+      border-radius: 10px;
+      margin: 8px 0;
+      transition: transform 0.2s ease;
+    }
+
+    /* Efeito de hover para destacar o evento, reforçando a interatividade da linha do tempo */
+    .evento:hover {
+      transform: scale(1.02);
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Destaque visual do ano do evento */
+    .ano {
+      font-weight: bold;
+    }
+
+    /*
+      Rodapé com fundo semi-transparente para separar do restante do conteúdo.
+      Contém virtudes e objetivo futuro do usuário.
+      Mantém a hierarquia visual e reforça a mensagem final da linha da vida.
+    */
+    footer {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    footer h2 {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+    }
+
+    /* Lista de virtudes com padding para organizar visualmente */
+    ul {
+      padding-left: 20px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Cabeçalho: apresenta título e data de nascimento, criando contexto imediato para o usuário -->
+  <header>
+    <h1>Linha da Vida de Vitório</h1>
+    <p>Nascimento: 15/03/2004</p>
+  </header>
+
+  <!-- Container principal contendo todas as fases da vida -->
+  <div class="container">
+    <!-- Fase: Infância -->
+    <div class="fase">
+      <h2>Infância (2004 - 2015)</h2>
+      <!-- Cada evento inclui ano e idade aproximada para facilitar visualização cronológica -->
+      <div class="evento"><span class="ano">2005 (1 ano):</span> Primeiros passos e primeiras palavras</div>
+      <div class="evento"><span class="ano">2006 (2 anos):</span> Primeiros amigos e brincadeiras</div>
+      <div class="evento"><span class="ano">2008 (4 anos):</span> Entrada no ensino fundamental</div>
+      <div class="evento"><span class="ano">2010 (6 anos):</span> Primeiro contato com tecnologia (computador/jogos)</div>
+      <div class="evento"><span class="ano">2012 (8 anos):</span> Participação em invernadas do CTG</div>
+      <div class="evento"><span class="ano">2013 (9 anos):</span> Mudança de turma e novos amigos</div>
+      <div class="evento"><span class="ano">2015 (11 anos):</span> Início do ensino fundamental</div>
+    </div>
+
+    <!-- Fase: Adolescência -->
+    <div class="fase">
+      <h2>Adolescência (2016 - 2021)</h2>
+      <div class="evento"><span class="ano">2016 (12 anos):</span> Joguei em escolinhas de futebol</div>
+      <div class="evento"><span class="ano">2016 (12 anos):</span> Copa do Brasil do Grêmio</div>
+      <div class="evento"><span class="ano">2016 (12 anos):</span> Meu irmão nasceu</div>
+      <div class="evento"><span class="ano">2017 (13 anos):</span> Primeiro Sonho: Ser médico</div>
+      <div class="evento"><span class="ano">2017 (13 anos):</span> Libertadores do Grêmio</div>
+      <div class="evento"><span class="ano">2019 (14 anos):</span> Entrei para o ensino médio no IFF</div>
+      <div class="evento"><span class="ano">2020 (16 anos):</span> Descoberta de interesses na área de TI</div>
+      <div class="evento"><span class="ano">2020 (16 anos):</span> Queria ser militar</div>
+      <div class="evento"><span class="ano">2021 (17 anos):</span> Conclusão do ensino médio</div>
+      <div class="evento"><span class="ano">2022 (17 anos):</span> Início da faculdade</div>
+    </div>
+
+    <!-- Fase: Adulto -->
+    <div class="fase">
+      <h2>Adulto (2022 - Atual)</h2>
+      <div class="evento"><span class="ano">2022 (18 anos):</span> Primeiro emprego formal</div>
+      <div class="evento"><span class="ano">2022 (18 anos):</span> Passei e tirei a CNH</div>
+      <div class="evento"><span class="ano">2023 (19 anos):</span> Bati um carro</div>
+      <div class="evento"><span class="ano">2023 (19 anos):</span> Comecei um relacionamento</div>
+      <div class="evento"><span class="ano">2024 (20 anos):</span> Assumi novas funções no meu emprego</div>
+      <div class="evento"><span class="ano">2025 (21 anos):</span> Aprendendo um novo idioma</div>
+      <div class="evento"><span class="ano">2025 (21 anos):</span> Abertura da minha empresa</div>
+    </div>
+  </div>
+
+  <!-- Rodapé: lista de virtudes e objetivo futuro, reforçando valores e metas pessoais -->
+  <footer>
+    <h2>Virtudes</h2>
+    <ul>
+      <li>Honestidade</li>
+      <li>Otimismo</li>
+      <li>Resiliência</li>
+    </ul>
+    <h2>Objetivo Futuro</h2>
+    <p>Ser um empresário de sucesso e ter o máximo de experiência possível em música (violão).</p>
+  </footer>
+</body>
+</html>
